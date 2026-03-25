@@ -1,0 +1,4 @@
+[90m/home/ivanbalashov/calculation/src/main/kotlin/[0mCalculator.kt[90m:[0m37[90m:29:[0m Missing space after // [90m(standard:comment-spacing)[0m
+
+Summary error count (descending) by rule:
+  standard:comment-spacing: 1

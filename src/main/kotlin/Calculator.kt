@@ -34,7 +34,7 @@ class Calculator {
                         val topOpChar = opsStack.last()
                         if (isOperator(topOpChar[0])) {
                             val topOp = Operator.fromChar(topOpChar[0])!!
-                            //тут делаем баг
+                            // тут делаем баг
                             if (topOp.precedence >= currentOp.precedence) {
                                 output.add(opsStack.removeLast())
                             } else {
