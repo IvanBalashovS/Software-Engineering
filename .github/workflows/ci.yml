@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # ✅ Обновлено до v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4  # ✅ Обновлено до v4
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -23,12 +23,12 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        # Эта команда запускает компиляцию, тесты (test) и линтер (ktlintCheck)
         run: ./gradlew build ktlintCheck
 
       - name: Upload Test Report
-        uses: actions/upload-artifact@v3
-        if: failure()
+        uses: actions/upload-artifact@v4  # ✅ КРИТИЧНО: было v3, стало v4
+        if: failure()  # Загружаем артефакты только при провале тестов
         with:
           name: test-reports
           path: build/reports/tests/test/
+          retention-days: 7  # ✅ Новая опция в v4: хранить артефакты 7 дней
